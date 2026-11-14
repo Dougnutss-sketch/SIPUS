@@ -27,6 +27,14 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->get('books/edit/(:num)', 'Books::edit/$1');
     $routes->post('books/update/(:num)', 'Books::update/$1');
     $routes->post('books/delete/(:num)', 'Books::delete/$1');
+
+    // Members
+    $routes->get('members', 'Members::index');
+    $routes->get('members/new', 'Members::new');
+    $routes->post('members/create', 'Members::create');
+    $routes->get('members/edit/(:num)', 'Members::edit/$1');
+    $routes->post('members/update/(:num)', 'Members::update/$1');
+    $routes->post('members/delete/(:num)', 'Members::delete/$1');
     
     //halaman yang hanya bisa diakses oleh admin
     $routes->group('admin', ['filter' => 'role:admin'], static function ($routes) {
@@ -36,5 +44,6 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
         $routes->get('users/edit/(:num)', 'Users::edit/$1');
         $routes->post('users/update/(:num)', 'Users::update/$1');
         $routes->post('users/delete/(:num)', 'Users::delete/$1');
+
     });
 });
